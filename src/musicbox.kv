@@ -1,0 +1,33 @@
+#<Widget>:
+#    canvas.after:
+#        Line:
+#            rectangle: self.x+1,self.y+1,self.width-1,self.height-1
+#            dash_offset: 5
+#            dash_length: 3
+
+<OverviewWidget>:
+    StackLayout:
+        #Label:
+        #    text: "Test 123"
+        #    size_hint: None, None
+        #    text_size: self.size
+        #    valign: "top"
+        list: list
+        ListView:
+            id: list
+
+[OverviewEntry@SelectableView+BoxLayout]
+    index: ctx.index
+    size_hint_y: ctx.size_hint_y
+    height: ctx.height
+    StackLayout:
+        Label:
+            text: ctx.artist
+            text_size: self.size
+            valign: "top"
+            size_hint: .5, None
+        Label:
+            text: ctx.name
+            text_size: self.size
+            valign: "top"
+            size_hint: .5, None
