@@ -6,6 +6,11 @@ if len(sys.argv) != 2:
     sys.exit(0)
 
 musicFile = sys.argv[1]
-print "Reading ID3 Tags from %s" % musicFile
 
 parser = ID3(musicFile)
+
+print 'Title: %s, Artist: %s, Album: %s' % \
+      (parser.get_frame('TIT2'), parser.get_frame('TPE2'), parser.get_frame('TALB'))
+
+if parser.contains_frame('PRIV'):
+    print bytearray(parser.get_frame('PRIV')).decode('UTF8')
